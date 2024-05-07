@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Меню Постпрод</title>
+<meta charset="utf-8">
+
+<style>
+.active {
+	color: red;
+	background-color: blue;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="menu">
+<div class="menu_item"><a class="item_link" href="#sapogi">Menu item 1</a></div>
+<div class="menu_item"><a class="item_link" href="#lyjy">Menu item 2</a></div>
+<div class="menu_item"><a class="item_link" href="#groby">Menu item 3</a></div>
+</div>
+
+<div id="content1">размер</div>
+<div id="content2">цвет</div>
+<div id="content3">скорость</div>
+<div id="content4">длина</div>
+<div id="content5">давление</div>
+<div id="content6">звукоизоляция</div>
+
+<script>
+var elements = document.getElementsByClassName("item_link");
+
+function myFunction() {
+	const id2href={
+		content1 : "#sapogi",
+		content2 : "#sapogi",
+		content3 : "#lyjy",
+		content4 : "#lyjy",
+		content5 : "#groby",
+		content6 : "#groby",
+	}
+
+	for (var i = 0; i < elements.length; i++) {
+		el = elements[i]
+		if (el === this)
+			el.classList.add("active");
+		else
+			el.classList.remove("active");
+	}
+
+	var attribute = this.getAttribute("href");
+	for (const i of Object.keys(id2href)) {
+		if (id2href[i] === attribute)
+			document.getElementById(i).style.display = "block";
+		else
+			document.getElementById(i).style.display = "none";
+	}
+}
+
+for (var i = 0; i < elements.length; i++) {
+	elements[i].addEventListener('click', myFunction, false);
+}
+
+document.querySelector('a[href="#sapogi"]').click();
+</script>
+
+</body>
+</html>
