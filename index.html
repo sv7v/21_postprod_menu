@@ -4,14 +4,6 @@
 <title>Меню Постпрод</title>
 <meta charset="utf-8">
 
-<style>
-.active {
-	color: red;
-	background-color: blue;
-}
-
-</style>
-
 </head>
 <body>
 
@@ -43,10 +35,13 @@ function myFunction() {
 
 	for (var i = 0; i < elements.length; i++) {
 		el = elements[i]
-		if (el === this)
-			el.classList.add("active");
-		else
-			el.classList.remove("active");
+		if (el === this) {
+			el.style.color = "white";
+			el.style.backgroundColor = "blue";
+		} else {
+			el.style.color = "black";
+			el.style.backgroundColor = "white";
+		}
 	}
 
 	var attribute = this.getAttribute("href");
